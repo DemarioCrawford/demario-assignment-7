@@ -26,7 +26,7 @@ class CustomArrayListTest {
 		rappers.add("Too Short");
 		assertEquals(3, rappers.getSize());
 	}
-	
+	//test fails
 	@Test
 	public void testGetElementAtIndex() {
 		rappers.add("Mac Dre");
@@ -50,7 +50,7 @@ class CustomArrayListTest {
 		assertEquals(15, rappers.getSize());
 		assertEquals("Rapper 14", rappers.get(14));
 	}
-	
+	//test fails
 	@Test
 	public void testRemoveElement() {
 		rappers.add("Mac Dre");
