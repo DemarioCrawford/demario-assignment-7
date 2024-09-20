@@ -36,7 +36,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		}
 		return null;
 	}
-
+	//trying to figure out how to implement test correctly so it passes
 	@Override
 	public boolean remove(T item) {
 		
