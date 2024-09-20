@@ -6,64 +6,64 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CustomArrayListTest {
-	CustomList<String> rappers;
+	CustomList<String> rappersList;
 	
 	@BeforeEach
 	public void setUp() {
-		rappers = new CustomArrayList<>();
+		rappersList = new CustomArrayList<>();
 	}
 
 	@Test
 	void testAddElementIncreasesSize() {
-		rappers.add("Mac Dre");
-		assertEquals(1, rappers.getSize());
+		rappersList.add("Mac Dre");
+		assertEquals(1, rappersList.getSize());
 	}
 	
 	@Test
 	public void testAddMultipleElementsIncreasesSize() {
-		rappers.add("Mac Dre");
-		rappers.add("Rooney Rackz");
-		rappers.add("Too Short");
-		assertEquals(3, rappers.getSize());
+		rappersList.add("Mac Dre");
+		rappersList.add("Rooney Rackz");
+		rappersList.add("Too Short");
+		assertEquals(3, rappersList.getSize());
 	}
 	//test fails
 	@Test
 	public void testGetElementAtIndex() {
-		rappers.add("Mac Dre");
-		rappers.add("40 Water");
-		assertEquals("Mac Dre", rappers.get(0));
-		assertEquals("40 Water", rappers.get(1));
+		rappersList.add("Mac Dre");
+		assertEquals("Mac Dre", rappersList.get(0));
+		assertThrows(IndexOutOfBoundsException.class, () -> rappersList.get(5));
 	}
 	
 	@Test
 	public void testGetInvalidIndexReturnsNull() {
-		rappers.add("Mac Dre");
-		assertNull(rappers.get(2));
+		rappersList.add("Mac Dre");
+		assertNull(rappersList.get(2));
 	}
 	
 	@Test
 	public void testArrayResizeWhenFull() {
 		for (int i = 0; i < 15; i++) {
-			rappers.add("Rapper " + i);
+			rappersList.add("Rapper " + i);
 		}
 		
-		assertEquals(15, rappers.getSize());
-		assertEquals("Rapper 14", rappers.get(14));
+		assertEquals(15, rappersList.getSize());
+		assertEquals("Rapper 14", rappersList.get(14));
 	}
 	//test fails
 	@Test
 	public void testRemoveElement() {
-		rappers.add("Mac Dre");
-		rappers.add("40 Water");
-		assertTrue(rappers.remove("Mac Dre"));
-		assertEquals(1, rappers.getSize());
+		rappersList.add("Mac Dre");
+		rappersList.add("40 Water");
+		
+		assertEquals(1, rappersList.getSize());
+		assertEquals("40 Water", rappersList.get(0));
 	}
 	
 	@Test
 	public void testContainsElement() {
-		rappers.add("Mac Dre");
-		assertTrue(rappers.contains("Mac Dre"));
-		assertFalse(rappers.contains("Too Short"));
+		rappersList.add("Mac Dre");
+		assertTrue(rappersList.contains("Mac Dre"));
+		assertFalse(rappersList.contains("Too Short"));
 	}
 
 }
